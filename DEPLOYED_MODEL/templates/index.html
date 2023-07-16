@@ -1,0 +1,21 @@
+{%block content%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Caption Generator</title>
+  </head>
+  <body>
+    <h1>Image Caption Generator</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button type="submit">Generate Caption</button>
+    </form>
+    {% if image %}
+    <img src="data:image/jpeg;base64,{{ image }}" width="640" height="480">
+    {% endif %}
+    {% if caption %}
+    <p>{{ caption }}</p>
+    {% endif %}
+  </body>
+</html>
+{%endblock%}
